@@ -36,9 +36,9 @@ public address=''
 public gender=''
 public message =''
 
-public studentArray:StudentInterface[]=[]
+public adminArray:StudentInterface[]=[]
 ngOnInit(){
-  this.studentArray=JSON.parse(localStorage.getItem('newstudents')!)
+  this.adminArray=JSON.parse(localStorage.getItem('newadmin')!)
 }
 onSubmit(){
 let studentObj:StudentInterface={
@@ -49,12 +49,12 @@ let studentObj:StudentInterface={
   password:this.password,
   gender:this.gender,
 }
-if (!this.studentArray) {
-  this.studentArray = [];
+if (!this.adminArray) {
+  this.adminArray = [];
 }
 
-this.studentArray.push(studentObj)
-localStorage.setItem('newstudents', JSON.stringify(this.studentArray))
+this.adminArray.push(studentObj)
+localStorage.setItem('newadmin', JSON.stringify(this.adminArray))
 // alert("Account Created Successfully!")
 
 this.message = 'Registration Successful';

@@ -1,40 +1,37 @@
-<!-- <div class="container my-4">
-    <div class="row">
-      <div class="col-md-8 mx-auto">
-        <div class="card">
-          <h5 class="card-header">User Details</h5>
-          <div class="card-body">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th scope="row">First Name</th>
-                  <td>{{ user.firstname }}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Last Name</th>
-                  <td>{{ user.lastname }}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Email</th>
-                  <td>{{ user.email }}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Address</th>
-                  <td>{{ user.address }}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Password</th>
-                  <td>{{ user.password }}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Gender</th>
-                  <td>{{ user.gender }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+<div *ngIf="students.length > 0; else noStudents" class="container mt-5">
+    <h2>Student Dashboard</h2>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>S/N</th> <!-- Added S/N column -->
+          <th>Matric No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index">
+          <td>{{ i + 1 }}</td> <!-- Display S/N index, starting from 1 -->
+          <td>{{ student.matric }}</td>
+          <td>{{ student.firstname }}</td>
+          <td>{{ student.lastname }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.gender }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm mr-2" (click)="editStudent(i)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-   -->
+  <ng-template #noStudents>
+    <div class="alert alert-warning" role="alert">
+      No students registered.
+    </div>
+  </ng-template>

@@ -1,0 +1,22 @@
+/* admin-dashboard.component.css */
+.table {
+    margin-top: 20px;
+}
+
+.btn-sm {
+    margin-right: 5px;
+}
+
+/* Adjusting the padding for table cells for better readability */
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Custom styling for the header to make it stand out */
+.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}

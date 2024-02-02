@@ -33,20 +33,20 @@ public password=''
 public message: string = '';
 
 
-public studentArray:StudentInterface[]=[]
+public adminArray:StudentInterface[]=[]
 ngOnInit(){
-  this.studentArray=JSON.parse(localStorage['newstudents'])
-  console.log(this.studentArray);
+  this.adminArray=JSON.parse(localStorage['newadmin'])
+  console.log(this.adminArray);
 }
 onSignIn(){
-  let currentUser=this.studentArray.find((student, index)=>this.email==student.email && this.password==student.password)
+  let currentUser=this.adminArray.find((student, index)=>this.email==student.email && this.password==student.password)
   if(currentUser){
     localStorage.setItem('current_user', JSON.stringify(currentUser))
     this.message = 'Login successful! Redirecting...';
 
     // Set a timeout before navigating to the next page
     setTimeout(() => {
-      this.routes.navigate(['dashboard']);
+      this.routes.navigate(['/dashboard']);
     }, 2000); // Delay of 2000 milliseconds (2 seconds)
   } else {
     this.message = 'User not found';
