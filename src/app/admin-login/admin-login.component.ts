@@ -46,7 +46,7 @@ onSignIn(){
 
     // Set a timeout before navigating to the next page
     setTimeout(() => {
-      this.routes.navigate(['board']);
+      this.routes.navigate(['dashboard']);
     }, 2000); // Delay of 2000 milliseconds (2 seconds)
   } else {
     this.message = 'User not found';
